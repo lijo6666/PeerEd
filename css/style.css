@@ -2557,13 +2557,8 @@ img, video {
     rgba(3, 10, 25, 0.25) 70%,
     rgba(3, 10, 25, 0.00) 100%
   );
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
   pointer-events: none;
-  transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              backdrop-filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  -webkit-mask-image: linear-gradient(to top, black 25%, transparent 95%);
-  mask-image: linear-gradient(to top, black 25%, transparent 95%);
+  transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .visibility-panel-premium:hover .visibility-glass-overlay {
@@ -2575,8 +2570,6 @@ img, video {
     rgba(3, 10, 25, 0.35) 70%,
     rgba(3, 10, 25, 0.00) 100%
   );
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
 }
 
 .visibility-card-body {
