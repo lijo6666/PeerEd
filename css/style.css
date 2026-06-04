@@ -2185,6 +2185,63 @@ img, video {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
+.visual-card-image-layout {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(10, 20, 50, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
+              border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visual-card-image-layout:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(30, 79, 255, 0.2), 0 10px 25px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.activity-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+  filter: saturate(1.1) contrast(1.05);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visual-card-image-layout:hover .activity-card-img {
+  transform: scale(1.05) rotate(0.01deg);
+}
+
+.activity-glass-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: rgba(3, 10, 25, 0.2);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  pointer-events: none;
+  transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              backdrop-filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visual-card-image-layout:hover .activity-glass-overlay {
+  background: rgba(3, 10, 25, 0.35);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
 .visual-glow {
   position: absolute;
   width: 160px;
