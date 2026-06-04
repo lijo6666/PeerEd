@@ -2488,16 +2488,7 @@ img, video {
   transform: scale(1.05) rotate(0.01deg);
 }
 
-/* Specific styling for the Peer Educator Badge card to keep logo visible, centered, and uncropped */
-.visibility-panel-premium.badge-card .visibility-card-img {
-  object-fit: contain;
-  object-position: center 25%;
-  width: 85%;
-  height: 85%;
-  left: 7.5%;
-  top: 0;
-  filter: saturate(1.2) contrast(1.15) drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
-}
+
 
 .visibility-glass-overlay {
   position: absolute;
