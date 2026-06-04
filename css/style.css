@@ -2450,61 +2450,36 @@ img, video {
 }
 
 .visibility-panel-premium {
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(32px);
-  -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.2);
+  position: relative;
+  height: 520px;
   border-radius: 32px;
   overflow: hidden;
-  height: 520px;
+  background: rgba(10, 20, 50, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
               box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1), 
               border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
 }
 
 .visibility-panel-premium:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 30px 100px rgba(30, 79, 255, 0.18), 0 10px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.panel-header-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-}
-
-.panel-header-icon.gold {
-  background: rgba(212, 169, 74, 0.1);
-  border: 1px solid rgba(212, 169, 74, 0.2);
-  color: var(--accent-gold);
-}
-
-.panel-header-icon.blue {
-  background: rgba(30, 79, 255, 0.1);
-  border: 1px solid rgba(30, 79, 255, 0.2);
-  color: var(--secondary-blue);
-}
-
-.visibility-image-wrapper {
-  position: relative;
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
+  transform: translateY(-8px);
+  box-shadow: 0 30px 100px rgba(30, 79, 255, 0.25), 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .visibility-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+  z-index: 1;
   filter: saturate(1.15) contrast(1.1);
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -2513,47 +2488,63 @@ img, video {
   transform: scale(1.05) rotate(0.01deg);
 }
 
+/* Specific styling for the Peer Educator Badge card to keep logo visible, centered, and uncropped */
+.visibility-panel-premium.badge-card .visibility-card-img {
+  object-fit: contain;
+  object-position: center 25%;
+  width: 85%;
+  height: 85%;
+  left: 7.5%;
+  top: 0;
+  filter: saturate(1.2) contrast(1.15) drop-shadow(0 15px 35px rgba(0, 0, 0, 0.5));
+}
+
 .visibility-glass-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
   background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.12) 40%,
-    rgba(10, 20, 50, 0.75) 100%
+    to top,
+    rgba(3, 10, 25, 0.95) 0%,
+    rgba(3, 10, 25, 0.85) 20%,
+    rgba(3, 10, 25, 0.65) 40%,
+    rgba(3, 10, 25, 0.25) 70%,
+    rgba(3, 10, 25, 0.00) 100%
   );
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   pointer-events: none;
-  transition: opacity 0.6s ease;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+  transition: background 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              backdrop-filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-mask-image: linear-gradient(to top, black 25%, transparent 95%);
+  mask-image: linear-gradient(to top, black 25%, transparent 95%);
 }
 
-:root.light-mode .visibility-glass-overlay {
+.visibility-panel-premium:hover .visibility-glass-overlay {
   background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.2) 40%,
-    rgba(244, 246, 250, 0.85) 100%
+    to top,
+    rgba(3, 10, 25, 0.98) 0%,
+    rgba(3, 10, 25, 0.92) 20%,
+    rgba(3, 10, 25, 0.75) 40%,
+    rgba(3, 10, 25, 0.35) 70%,
+    rgba(3, 10, 25, 0.00) 100%
   );
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
 }
 
 .visibility-card-body {
+  position: relative;
+  z-index: 3;
   padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  flex-grow: 1;
-  justify-content: flex-start;
-}
-
-.visibility-card-body .panel-header-icon {
-  margin-bottom: 16px;
+  pointer-events: none;
 }
 
 .visibility-card-body h3 {
@@ -2561,14 +2552,16 @@ img, video {
   font-weight: 800;
   margin-bottom: 12px;
   font-family: 'Outfit', sans-serif;
-  color: var(--text-primary);
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .visibility-card-body .small-text {
   font-size: 14.5px;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* =========================================
