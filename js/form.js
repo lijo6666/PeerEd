@@ -157,11 +157,14 @@ class FormSystem {
     loader.className = 'glass-loader-overlay';
     loader.innerHTML = `
       <div class="loader-content" style="display:flex; flex-direction:column; align-items:center; gap:16px;">
-        <i class="lucide-loader-2 spin-anim" style="font-size: 40px; color: var(--accent-gold);"></i>
+        <i data-lucide="loader-2" class="spin-anim" style="width: 40px; height: 40px; color: var(--accent-gold);"></i>
         <p style="color: var(--text-primary); font-size:16px;">Processing Application...</p>
       </div>
     `;
     this.form.appendChild(loader);
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
     
     setTimeout(() => {
       // Transition to Success Card Screen
@@ -174,7 +177,7 @@ class FormSystem {
       successCard.innerHTML = `
         <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:20px; padding: 20px 0;">
           <div class="success-icon-wrapper" style="width: 80px; height: 80px; border-radius:50%; background:rgba(46, 213, 115, 0.15); border: 2px solid #2ed573; display:flex; align-items:center; justify-content:center; color:#2ed573; font-size: 32px; animation: popIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);">
-            <i class="lucide-check"></i>
+            <i data-lucide="check" style="width: 32px; height: 32px;"></i>
           </div>
           <h3 style="font-size:24px; color:var(--text-primary);">You're on the list!</h3>
           <p style="color:var(--text-secondary); font-size: 16px; max-width:400px;">
@@ -193,6 +196,9 @@ class FormSystem {
         </div>
       `;
       this.form.appendChild(successCard);
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
     }, 1500);
   }
   

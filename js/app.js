@@ -844,11 +844,11 @@ class AppController {
           if (!jar || !card || !msg) return;
           
           const greetings = [
-            ""You make this campus community a brighter, warmer place. We are truly glad you are here!"",
-            ""Take a breath. You are doing much better than you realize. Keep shining!"",
-            ""Your effort and resilience are inspiring. Remember to take a break and care for yourself today."",
-            ""You are valued, you belong, and there is a supportive community surrounding you at CCHS."",
-            ""Every small step you take is progress. We believe in your potential!""
+            "You make this campus community a brighter, warmer place. We are truly glad you are here!",
+            "Take a breath. You are doing much better than you realize. Keep shining!",
+            "Your effort and resilience are inspiring. Remember to take a break and care for yourself today.",
+            "You are valued, you belong, and there is a supportive community surrounding you at CCHS.",
+            "Every small step you take is progress. We believe in your potential!"
           ];
           
           jar.addEventListener('click', () => {
@@ -894,11 +894,11 @@ class AppController {
           const quoteTxt = document.getElementById('mirror-quote-text');
           
           const affirmations = [
-            ""I accept myself exactly as I am in this moment. I am worthy of love, care, and inner peace."",
-            ""I give myself permission to learn, make mistakes, and grow at my own speed."",
-            ""My mental wellbeing is a priority. I choose to let go of expectations I cannot meet today."",
-            ""I am capable of handling whatever challenges college life brings my way."",
-            ""I choose to be kind to myself. My value is not determined by grades or external expectations.""
+            "I accept myself exactly as I am in this moment. I am worthy of love, care, and inner peace.",
+            "I give myself permission to learn, make mistakes, and grow at my own speed.",
+            "My mental wellbeing is a priority. I choose to let go of expectations I cannot meet today.",
+            "I am capable of handling whatever challenges college life brings my way.",
+            "I choose to be kind to myself. My value is not determined by grades or external expectations."
           ];
           
           affirmBtn.addEventListener('click', () => {
@@ -1490,10 +1490,10 @@ class AppController {
           if (!quote || !author || !btn) return;
           
           const shares = [
-            { q: ""I used to feel like I was the only one struggling with deadlines. Hearing other students share their coping strategies changed everything."", a: "— Dev, 3rd Year B.Tech" },
-            { q: ""In the Listening Circle, no one interrupts you or tries to 'fix' your problems. They just listen with respect. It's incredibly freeing."", a: "— Shreya, 2nd Year MBA" },
-            { q: ""I realized that showing vulnerability is actually a form of strength. We are all dealing with transition stress in college."", a: "— Rohan, 1st Year B.Tech" },
-            { q: ""Hearing peers share their stories gave me the courage to book a professional CCHS clinical counselling session when I needed it."", a: "— Nithya, 4th Year B.Arch" }
+            { q: "I used to feel like I was the only one struggling with deadlines. Hearing other students share their coping strategies changed everything.", a: "— Dev, 3rd Year B.Tech" },
+            { q: "In the Listening Circle, no one interrupts you or tries to 'fix' your problems. They just listen with respect. It's incredibly freeing.", a: "— Shreya, 2nd Year MBA" },
+            { q: "I realized that showing vulnerability is actually a form of strength. We are all dealing with transition stress in college.", a: "— Rohan, 1st Year B.Tech" },
+            { q: "Hearing peers share their stories gave me the courage to book a professional CCHS clinical counselling session when I needed it.", a: "— Nithya, 4th Year B.Arch" }
           ];
           
           let idx = 0;
@@ -1603,11 +1603,11 @@ class AppController {
           if (!promptBox || !btn) return;
           
           const prompts = [
-            ""What is one thing that brought you peace today, no matter how small?"",
-            ""If you could write a letter to your stress, what is the first sentence you would say?"",
-            ""Who is someone in your life you appreciate having around? What makes them supportive?"",
-            ""What is a core strength you discovered about yourself during a challenging transition?"",
-            ""If you could give one piece of gentle advice to your freshman self, what would it be?""
+            "What is one thing that brought you peace today, no matter how small?",
+            "If you could write a letter to your stress, what is the first sentence you would say?",
+            "Who is someone in your life you appreciate having around? What makes them supportive?",
+            "What is a core strength you discovered about yourself during a challenging transition?",
+            "If you could give one piece of gentle advice to your freshman self, what would it be?"
           ];
           
           let idx = 0;
