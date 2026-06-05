@@ -3361,3 +3361,128 @@ img, video {
     line-height: 1.7;
   }
 }
+
+/* =========================================
+   COUNSELLING & HEALTH SECTIONS STYLE
+   ========================================= */
+.counselling-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.counselling-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 20px;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.counselling-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(30, 79, 255, 0.1), var(--card-shadow);
+}
+
+.counselling-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counselling-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(30, 79, 255, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counselling-icon-wrapper i {
+  color: var(--secondary-blue);
+  width: 24px;
+  height: 24px;
+}
+
+.counselling-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  opacity: 0.8;
+  letter-spacing: 1px;
+}
+
+.counselling-card-body h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+}
+
+.health-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.health-card {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.health-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(30, 79, 255, 0.1), var(--card-shadow);
+}
+
+.health-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(30, 79, 255, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.health-card-icon i {
+  color: var(--secondary-blue);
+  width: 24px;
+  height: 24px;
+}
+
+.health-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .health-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .counselling-grid, .health-grid {
+    grid-template-columns: 1fr;
+  }
+  .counselling-card, .health-card {
+    padding: 24px;
+  }
+}
+
