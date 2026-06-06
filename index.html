@@ -1269,7 +1269,14 @@
         </p>
       </div>
 
-      <div class="impact-grid">
+      <!-- Dashboard Switcher Tags -->
+      <div id="dashboard-toggle-tags" class="reveal-fade-up" style="display: flex; justify-content: center; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;">
+        <button class="filter-tag active" data-dashboard="overall">Overall Reach (2025-26)</button>
+        <button class="filter-tag" data-dashboard="student">Student Impact Distribution</button>
+      </div>
+
+      <!-- Overall Reach Grid -->
+      <div class="impact-grid" id="overall-impact-grid">
         <!-- Left side: Interactive SVG Donut Chart -->
         <div class="glass-card impact-chart-card reveal-scale-in" style="padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
           <div class="pie-chart-container" style="position: relative; width: 280px; height: 280px;">
@@ -1344,6 +1351,101 @@
               <p class="small-text" style="color: var(--text-secondary); line-height: 1.4;">Mental health drives, anxiety workshops, and resilience advice at local schools.</p>
             </div>
             <div style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-primary);">120+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Student Impact Distribution Grid -->
+      <div class="impact-grid" id="student-impact-grid" style="display: none;">
+        <!-- Left side: Interactive SVG Donut Chart for Student Impact -->
+        <div class="glass-card impact-chart-card reveal-scale-in" style="padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+          <div class="pie-chart-container" style="position: relative; width: 280px; height: 280px;">
+            <svg class="pie-chart-svg" viewBox="0 0 200 200" width="100%" height="100%" style="transform: rotate(-90deg); filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.25));">
+              <!-- Gender Sensitization & Equity Programmes (55%) -->
+              <circle r="60" cx="100" cy="100" fill="transparent" stroke="#d946ef" stroke-width="20" stroke-dasharray="207.4 377" stroke-dashoffset="0" class="pie-slice" style="transition: stroke-width 0.3s;" />
+              
+              <!-- Peer Leadership Development (15%) -->
+              <circle r="60" cx="100" cy="100" fill="transparent" stroke="#eab308" stroke-width="20" stroke-dasharray="56.6 377" stroke-dashoffset="-207.4" class="pie-slice" style="transition: stroke-width 0.3s;" />
+              
+              <!-- Mental Health & Emotional Well-being (6%) -->
+              <circle r="60" cx="100" cy="100" fill="transparent" stroke="#7c3aed" stroke-width="20" stroke-dasharray="22.6 377" stroke-dashoffset="-264" class="pie-slice" style="transition: stroke-width 0.3s;" />
+              
+              <!-- Orientation & Campus Adjustment (12%) -->
+              <circle r="60" cx="100" cy="100" fill="transparent" stroke="#f43f5e" stroke-width="20" stroke-dasharray="45.2 377" stroke-dashoffset="-286.6" class="pie-slice" style="transition: stroke-width 0.3s;" />
+              
+              <!-- Outreach & Addiction Awareness (12%) -->
+              <circle r="60" cx="100" cy="100" fill="transparent" stroke="#0d9488" stroke-width="20" stroke-dasharray="45.2 377" stroke-dashoffset="-331.8" class="pie-slice" style="transition: stroke-width 0.3s;" />
+              
+              <!-- Central Text -->
+              <text x="100" y="96" text-anchor="middle" fill="var(--text-primary)" font-family="'Outfit', sans-serif" font-weight="700" font-size="20px" style="transform: rotate(90deg); transform-origin: 100px 100px;">100%</text>
+              <text x="100" y="114" text-anchor="middle" fill="var(--text-secondary)" font-family="'Outfit', sans-serif" font-weight="500" font-size="10px" style="transform: rotate(90deg); transform-origin: 100px 100px;">Student Impact</text>
+            </svg>
+          </div>
+          <p class="small-text" style="margin-top: 24px; text-align: center; color: var(--text-secondary); max-width: 280px; line-height: 1.5;">
+            Distribution of student involvement across different CCHS counselling and awareness programmes.
+          </p>
+        </div>
+
+        <!-- Right side: Breakdowns Cards for Student Impact -->
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <!-- Category: Gender Sensitization -->
+          <div class="glass-card stat-item-card reveal-fade-up" style="display: flex; align-items: center; gap: 20px; padding: 20px 24px; border-left: 5px solid #d946ef;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(217, 70, 239, 0.1); color: #d946ef; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              <i data-lucide="scale"></i>
+            </div>
+            <div style="flex-grow: 1;">
+              <h3 style="font-size: 16px; color: var(--text-primary); margin-bottom: 2px;">Gender Sensitization & Equity</h3>
+              <p class="small-text" style="color: var(--text-secondary); line-height: 1.4;">SDG 5, Athena's Approach, AI & DS Session, 1st B.Tech.</p>
+            </div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-primary);">55%</div>
+          </div>
+
+          <!-- Category: Peer Leadership -->
+          <div class="glass-card stat-item-card reveal-fade-up" style="display: flex; align-items: center; gap: 20px; padding: 20px 24px; border-left: 5px solid #eab308; transition-delay: 0.05s;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(234, 179, 8, 0.1); color: #eab308; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              <i data-lucide="users"></i>
+            </div>
+            <div style="flex-grow: 1;">
+              <h3 style="font-size: 16px; color: var(--text-primary); margin-bottom: 2px;">Peer Leadership Development</h3>
+              <p class="small-text" style="color: var(--text-secondary); line-height: 1.4;">Peer Educators, Peer Mentors, Senior Mentors.</p>
+            </div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-primary);">15%</div>
+          </div>
+
+          <!-- Category: Mental Health -->
+          <div class="glass-card stat-item-card reveal-fade-up" style="display: flex; align-items: center; gap: 20px; padding: 20px 24px; border-left: 5px solid #7c3aed; transition-delay: 0.1s;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(124, 58, 237, 0.1); color: #7c3aed; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              <i data-lucide="heart"></i>
+            </div>
+            <div style="flex-grow: 1;">
+              <h3 style="font-size: 16px; color: var(--text-primary); margin-bottom: 2px;">Mental Health & Well-being</h3>
+              <p class="small-text" style="color: var(--text-secondary); line-height: 1.4;">Stress Stall, Bootcamp Mindfulness.</p>
+            </div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-primary);">6%</div>
+          </div>
+
+          <!-- Category: Orientation -->
+          <div class="glass-card stat-item-card reveal-fade-up" style="display: flex; align-items: center; gap: 20px; padding: 20px 24px; border-left: 5px solid #f43f5e; transition-delay: 0.15s;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(244, 63, 94, 0.1); color: #f43f5e; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              <i data-lucide="compass"></i>
+            </div>
+            <div style="flex-grow: 1;">
+              <h3 style="font-size: 16px; color: var(--text-primary); margin-bottom: 2px;">Orientation & Campus Adjustment</h3>
+              <p class="small-text" style="color: var(--text-secondary); line-height: 1.4;">Anti-Ragging Oath, NRI Orientation.</p>
+            </div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-primary);">12%</div>
+          </div>
+
+          <!-- Category: Outreach -->
+          <div class="glass-card stat-item-card reveal-fade-up" style="display: flex; align-items: center; gap: 20px; padding: 20px 24px; border-left: 5px solid #0d9488; transition-delay: 0.2s;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(13, 148, 136, 0.1); color: #0d9488; display: flex; align-items: center; justify-content: center; font-size: 20px;">
+              <i data-lucide="heart-handshake"></i>
+            </div>
+            <div style="flex-grow: 1;">
+              <h3 style="font-size: 16px; color: var(--text-primary); margin-bottom: 2px;">Outreach & Addiction Awareness</h3>
+              <p class="small-text" style="color: var(--text-secondary); line-height: 1.4;">BGR Session, CAPS, PU Residential.</p>
+            </div>
+            <div style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-primary);">12%</div>
           </div>
         </div>
       </div>
@@ -2166,6 +2268,28 @@
         searchInput.addEventListener('input', (e) => {
           activeSearch = e.target.value.toLowerCase().trim();
           filterActivities();
+        });
+      }
+
+      // Dashboard Switcher
+      const dashboardToggleTags = document.querySelectorAll('#dashboard-toggle-tags .filter-tag');
+      const overallImpactGrid = document.getElementById('overall-impact-grid');
+      const studentImpactGrid = document.getElementById('student-impact-grid');
+      
+      if (dashboardToggleTags && overallImpactGrid && studentImpactGrid) {
+        dashboardToggleTags.forEach(tag => {
+          tag.addEventListener('click', () => {
+            dashboardToggleTags.forEach(t => t.classList.remove('active'));
+            tag.classList.add('active');
+            const mode = tag.getAttribute('data-dashboard');
+            if (mode === 'overall') {
+              overallImpactGrid.style.display = 'grid';
+              studentImpactGrid.style.display = 'none';
+            } else {
+              overallImpactGrid.style.display = 'none';
+              studentImpactGrid.style.display = 'grid';
+            }
+          });
         });
       }
     });
