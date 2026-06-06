@@ -8,6 +8,11 @@ class ParticleSystem {
     this.mouse = { x: null, y: null, targetX: 0, targetY: 0, radius: 150 };
     this.particleCount = 60;
     
+    // Cache background orbs to prevent selector query thrashing in animation loop
+    this.orb1 = document.querySelector('.bg-orb-1');
+    this.orb2 = document.querySelector('.bg-orb-2');
+    this.orb3 = document.querySelector('.bg-orb-3');
+    
     this.init();
     this.animate();
     this.addEventListeners();
@@ -131,16 +136,12 @@ class ParticleSystem {
     
     // Update floating background orbs with mouse parallax offset
     if (this.mouse.x !== null) {
-      const orb1 = document.querySelector('.bg-orb-1');
-      const orb2 = document.querySelector('.bg-orb-2');
-      const orb3 = document.querySelector('.bg-orb-3');
-      
       const pxX = (this.mouse.x - window.innerWidth / 2) * -0.02;
       const pxY = (this.mouse.y - window.innerHeight / 2) * -0.02;
       
-      if (orb1) orb1.style.transform = `translate(${pxX}px, ${pxY}px)`;
-      if (orb2) orb2.style.transform = `translate(${pxX * -1.5}px, ${pxY * -1.5}px) scale(1.2)`;
-      if (orb3) orb3.style.transform = `translate(-50%, -50%) translate(${pxX * 0.8}px, ${pxY * 0.8}px) scale(1.1)`;
+      if (this.orb1) this.orb1.style.transform = `translate(${pxX}px, ${pxY}px)`;
+      if (this.orb2) this.orb2.style.transform = `translate(${pxX * -1.5}px, ${pxY * -1.5}px) scale(1.2)`;
+      if (this.orb3) this.orb3.style.transform = `translate(-50%, -50%) translate(${pxX * 0.8}px, ${pxY * 0.8}px) scale(1.1)`;
     }
     
     requestAnimationFrame(() => this.animate());

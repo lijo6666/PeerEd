@@ -7,6 +7,15 @@ class AppController {
     this.sections = document.querySelectorAll('section');
     this.navItems = document.querySelectorAll('.nav-links li');
     
+    // Cache nav items and target elements to avoid layout thrashing during scroll events
+    this.navLinksData = Array.from(this.navItems).map(item => {
+      const link = item.querySelector('a');
+      const href = link?.getAttribute('href');
+      const targetId = href && href.startsWith('#') ? href.substring(1) : null;
+      const targetEl = targetId ? document.getElementById(targetId) : null;
+      return { item, link, targetEl };
+    }).filter(data => data.targetEl);
+    
     this.init();
   }
   
@@ -116,29 +125,21 @@ class AppController {
   
   highlightNavLinks() {
     let scrollPosition = window.scrollY + 140;
+    let activeItem = null;
     
-    const targetIds = Array.from(this.navItems)
-      .map(item => item.querySelector('a')?.getAttribute('href')?.substring(1))
-      .filter(Boolean);
-      
-    let activeId = null;
-    
-    for (const id of targetIds) {
-      const el = document.getElementById(id);
-      if (!el) continue;
-      
+    for (const data of this.navLinksData) {
+      const el = data.targetEl;
       const top = el.offsetTop;
       const height = el.offsetHeight;
       
       if (scrollPosition >= top && scrollPosition < top + height) {
-        activeId = id;
+        activeItem = data.item;
       }
     }
     
-    if (activeId) {
+    if (activeItem) {
       this.navItems.forEach(item => {
-        const link = item.querySelector('a');
-        if (link && link.getAttribute('href') === `#${activeId}`) {
+        if (item === activeItem) {
           item.classList.add('active');
         } else {
           item.classList.remove('active');

@@ -2119,28 +2119,34 @@
       const filterTags = document.querySelectorAll('#activity-filter-tags .filter-tag');
       const cards = document.querySelectorAll('#activities-cards-grid .activity-card');
       
+      // Cache card values to prevent style recalculation during user typing
+      const cardsData = Array.from(cards).map(card => {
+        const category = card.getAttribute('data-category');
+        const h3 = card.querySelector('h3');
+        const p = card.querySelector('p');
+        const title = h3 ? h3.textContent.toLowerCase() : '';
+        const desc = p ? p.textContent.toLowerCase() : '';
+        return { card, category, title, desc };
+      });
+      
       let activeFilter = 'all';
       let activeSearch = '';
       
       function filterActivities() {
-        cards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          const title = card.querySelector('h3').textContent.toLowerCase();
-          const desc = card.querySelector('p').textContent.toLowerCase();
-          
-          const matchesCategory = (activeFilter === 'all' || category === activeFilter);
-          const matchesSearch = (!activeSearch || title.includes(activeSearch) || desc.includes(activeSearch));
+        cardsData.forEach(item => {
+          const matchesCategory = (activeFilter === 'all' || item.category === activeFilter);
+          const matchesSearch = (!activeSearch || item.title.includes(activeSearch) || item.desc.includes(activeSearch));
           
           if (matchesCategory && matchesSearch) {
-            card.style.display = 'flex';
+            item.card.style.display = 'flex';
             // Trigger animation fade-in effect
-            card.style.opacity = '0';
+            item.card.style.opacity = '0';
             setTimeout(() => {
-              card.style.opacity = '1';
-              card.style.transform = 'translateY(0)';
+              item.card.style.opacity = '1';
+              item.card.style.transform = 'translateY(0)';
             }, 50);
           } else {
-            card.style.display = 'none';
+            item.card.style.display = 'none';
           }
         });
       }

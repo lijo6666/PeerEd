@@ -11,13 +11,32 @@ class TimelineSystem {
   }
   
   init() {
-    window.addEventListener('scroll', () => this.updateTimeline());
-    window.addEventListener('resize', () => this.updateTimeline());
+    window.addEventListener('scroll', () => this.updateTimelineProgress());
+    window.addEventListener('resize', () => this.updateTimelineProgress());
+    
+    // Asynchronous IntersectionObserver for scroll activation, completely avoiding getBoundingClientRect thrashes
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -25% 0px"
+    };
+    
+    const itemObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, observerOptions);
+    
+    this.items.forEach(item => itemObserver.observe(item));
+    
     // Initial run
-    setTimeout(() => this.updateTimeline(), 100);
+    setTimeout(() => this.updateTimelineProgress(), 100);
   }
   
-  updateTimeline() {
+  updateTimelineProgress() {
     if (!this.container || !this.progress) return;
     
     const rect = this.container.getBoundingClientRect();
@@ -40,17 +59,6 @@ class TimelineSystem {
     
     percentage = Math.max(0, Math.min(100, percentage));
     this.progress.style.height = `${percentage}%`;
-    
-    // Activate timeline items
-    this.items.forEach((item) => {
-      const itemRect = item.getBoundingClientRect();
-      // If item top is above 75% of viewport height, activate it
-      if (itemRect.top < windowHeight * 0.75) {
-        item.classList.add('active');
-      } else {
-        item.classList.remove('active');
-      }
-    });
   }
 }
 
