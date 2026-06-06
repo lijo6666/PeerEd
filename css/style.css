@@ -4363,3 +4363,35 @@ body.modal-open {
   }
 }
 
+/* Impact Dashboard & SVG Donut Chart */
+.impact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  align-items: center;
+}
+.pie-slice {
+  cursor: pointer;
+}
+.pie-slice:hover {
+  stroke-width: 25;
+  filter: brightness(1.1);
+}
+.stat-item-card {
+  transition: transform 0.3s var(--transition-timing), border-left-width 0.2s ease, background 0.3s ease;
+}
+.stat-item-card:hover {
+  transform: translateX(6px);
+  border-left-width: 8px !important;
+  background: var(--card-bg-hover);
+}
+@media (max-width: 768px) {
+  .impact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  .impact-chart-card {
+    padding: 24px !important;
+  }
+}
+
